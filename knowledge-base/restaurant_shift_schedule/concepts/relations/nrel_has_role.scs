@@ -1,0 +1,18 @@
+nrel_has_role
+<- sc_node_non_role_relation;
+<- concept_non_role_relation;
+<- concept_binary_relation;
+<- concept_oriented_relation;
+=> nrel_main_idtf:
+    [имеет роль*]
+    (*
+        <- lang_ru;;
+    *);
+    [has role*]
+    (*
+        <- lang_en;;
+    *);
+=> nrel_first_domain:
+    concept_employee;
+=> nrel_first_domain:
+    concept_role;;

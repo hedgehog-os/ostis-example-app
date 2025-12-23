@@ -1,0 +1,7 @@
+classification
+<- concept_ds_task;
+=> nrel_main_idtf: 
+    [классификация] 
+    (* <- lang_ru;; *);
+<= nrel_inclusion: 
+    concept_supervised_learning;;

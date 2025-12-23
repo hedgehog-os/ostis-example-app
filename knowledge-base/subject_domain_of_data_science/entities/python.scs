@@ -1,0 +1,11 @@
+python
+<- concept_ds_tool;
+=> nrel_main_idtf:
+    [Python]
+    (* <- lang_ru;; *);
+-> rrel_applies_to:
+    classification;
+    nlp;
+    computer_vision;
+    clustering;
+    regression;;

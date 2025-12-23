@@ -1,0 +1,15 @@
+shift_saturday_morning
+=> nrel_main_idtf:
+    [суббота утренняя смена]
+    (*
+        <- lang_ru;;
+    *);
+    [Sat morning shift]
+    (*
+        <- lang_en;;
+    *);
+<- concept_shift;
+=> nrel_shift_day:
+    day_saturday;
+=> nrel_shift_type:
+    shift_type_morning;;

@@ -1,0 +1,7 @@
+computer_vision
+<- concept_ds_task;
+=> nrel_main_idtf: 
+    [компьютерное зрение] 
+    (* <- lang_ru;; *);
+<= nrel_inclusion: 
+    concept_deep_learning;;

@@ -1,0 +1,11 @@
+shift_type_night
+=> nrel_main_idtf:
+    [ночная смена]
+    (*
+        <- lang_ru;;
+    *);
+    [night shift]
+    (*
+        <- lang_en;;
+    *);
+<- concept_shift_type;;

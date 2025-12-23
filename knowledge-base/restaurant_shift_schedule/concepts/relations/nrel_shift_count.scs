@@ -1,0 +1,18 @@
+nrel_shift_count
+<- sc_node_non_role_relation;
+<- concept_non_role_relation;
+<- concept_binary_relation;
+<- concept_oriented_relation;
+=> nrel_main_idtf:
+    [количество смен*]
+    (*
+        <- lang_ru;;
+    *);
+    [shift count*]
+    (*
+        <- lang_en;;
+    *);
+=> nrel_first_domain:
+    concept_employee;
+=> nrel_first_domain:
+    sc_node_link;;

@@ -1,0 +1,15 @@
+shift_tuesday_morning
+=> nrel_main_idtf:
+    [вторник утренняя смена]
+    (*
+        <- lang_ru;;
+    *);
+    [Tue morning shift]
+    (*
+        <- lang_en;;
+    *);
+<- concept_shift;
+=> nrel_shift_day:
+    day_tuesday;
+=> nrel_shift_type:
+    shift_type_morning;;

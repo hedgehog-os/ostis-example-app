@@ -1,0 +1,18 @@
+nrel_slot_can_work
+<- sc_node_non_role_relation;
+<- concept_non_role_relation;
+<- concept_binary_relation;
+<- concept_oriented_relation;
+=> nrel_main_idtf:
+    [слот может работать в смене*]
+    (*
+        <- lang_ru;;
+    *);
+    [slot can work in shift*]
+    (*
+        <- lang_en;;
+    *);
+=> nrel_first_domain:
+    concept_employee_slot;
+=> nrel_first_domain:
+    concept_shift;;

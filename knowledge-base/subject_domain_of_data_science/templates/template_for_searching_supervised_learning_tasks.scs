@@ -1,0 +1,49 @@
+// template_for_searching_specialists_tools.scs
+@search_specialist_tools_template = {
+    rrel_init_template: {
+        rrel_template: [*
+            @input_param1 = (.._company <-_ concept_company);;
+            rrel_employee _-> (.._company _-> .._specialist);;
+            @output_param1 = (.._specialist <-_ concept_data_scientist);;
+        *];
+        rrel_template_input_params: {
+            @input_param1
+        };
+        rrel_template_output_params: {
+            @output_param1
+        }
+    } (* <- nrel_search_set_template;; *);
+    rrel_next_template: {
+        rrel_init_template: {
+            rrel_template: [*
+                @input_param1 = (.._specialist <-_ concept_data_scientist);;
+                nrel_specialization _-> (.._specialist _-> .._task);;
+            *];
+            rrel_template_input_params: {
+                @input_param1
+            }
+        } (* <- nrel_search_set_template;; *);
+        rrel_next_template: {
+            rrel_init_template: {
+                rrel_template: [*
+                    @input_param1 = (.._task <-_ concept_ds_task);;
+                    nrel_inclusion _-> (.._specialist <=_ .._task);;
+                *];
+                rrel_template_input_params: {
+                    @input_param1
+                };
+                rrel_template_output_params: {
+                @output_param1
+            }
+            } (* <- nrel_search_set_template;; *)
+        } (* <- nrel__fixed_search_strategy_template;; *)
+    } (* <- nrel_fixed_search_strategy_template;; *)
+};;
+
+@search_specialist_tools_template
+<- nrel_fixed_search_strategy_template;
+=> nrel_main_idtf:
+    [Шаблон поиска задач обучения с учителем]
+    (*
+        <- lang_ru;;
+    *);;

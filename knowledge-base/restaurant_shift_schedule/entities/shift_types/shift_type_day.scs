@@ -1,0 +1,11 @@
+shift_type_day
+=> nrel_main_idtf:
+    [дневная смена]
+    (*
+        <- lang_ru;;
+    *);
+    [day shift]
+    (*
+        <- lang_en;;
+    *);
+<- concept_shift_type;;

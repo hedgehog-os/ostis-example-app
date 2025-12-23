@@ -1,0 +1,9 @@
+google
+<- concept_company;
+=> nrel_main_idtf: 
+    [Гугл] 
+    (* <- lang_ru;; *);
+-> rrel_employee:
+    andrew_ng;
+    yann_lecun;
+    fe_fe_li;;

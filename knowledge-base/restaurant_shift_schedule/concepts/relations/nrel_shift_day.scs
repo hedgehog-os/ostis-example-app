@@ -1,0 +1,18 @@
+nrel_shift_day
+<- sc_node_non_role_relation;
+<- concept_non_role_relation;
+<- concept_binary_relation;
+<- concept_oriented_relation;
+=> nrel_main_idtf:
+    [день смены*]
+    (*
+        <- lang_ru;;
+    *);
+    [shift day*]
+    (*
+        <- lang_en;;
+    *);
+=> nrel_first_domain:
+    concept_shift;
+=> nrel_first_domain:
+    concept_day;;

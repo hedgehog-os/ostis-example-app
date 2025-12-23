@@ -1,0 +1,18 @@
+employee_belov
+=> nrel_main_idtf:
+    [Белов]
+    (*
+        <- lang_ru;;
+    *);
+    [Belov]
+    (*
+        <- lang_en;;
+    *);
+<- concept_employee;
+=> nrel_has_role:
+    concept_cook;
+=> nrel_available_shift_type:
+    shift_type_morning;
+    shift_type_day;
+=> nrel_max_shifts_per_week:
+    [5];;

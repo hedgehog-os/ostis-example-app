@@ -1,0 +1,18 @@
+nrel_has_employee
+<- sc_node_non_role_relation;
+<- concept_non_role_relation;
+<- concept_binary_relation;
+<- concept_oriented_relation;
+=> nrel_main_idtf:
+    [имеет сотрудника*]
+    (*
+        <- lang_ru;;
+    *);
+    [has employee*]
+    (*
+        <- lang_en;;
+    *);
+=> nrel_first_domain:
+    concept_restaurant;
+=> nrel_first_domain:
+    concept_employee;;

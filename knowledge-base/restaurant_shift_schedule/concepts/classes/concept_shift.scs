@@ -1,0 +1,12 @@
+concept_shift
+<- sc_node_class;
+<- concept_class;
+=> nrel_main_idtf:
+    [смена]
+    (*
+        <- lang_ru;;
+    *);
+    [shift]
+    (*
+        <- lang_en;;
+    *);;

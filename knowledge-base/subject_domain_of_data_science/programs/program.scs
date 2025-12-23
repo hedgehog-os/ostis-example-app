@@ -1,0 +1,273 @@
+//программа
+program_for_searching_scientists_with_big_data
+=> nrel_main_idtf:
+	[Программа поиска специалистов с большим количеством данных]
+    (*
+        <- lang_ru;;
+    *);
+	[Program for searching specialists with a lot of data]
+    (*
+        <- lang_en;;
+    *);
+<- scp_program;
+-> rrel_key_sc_element:
+    .._process;;
+
+program_for_searching_scientists_with_big_data = [*
+.._process
+<-_ scp_process;
+
+// ОБЪЯВЛЕНИЕ ВХОДНЫХ И ВЫХОДНЫХ ПАРАМЕТРОВ:
+_-> rrel_1:: rrel_in:: .._company; // компания, в рамках которой ищутся специалисты с большими данными.
+_-> rrel_2:: rrel_out:: .._result_scientists; // результирующая структура специалистов с большими данными.
+
+<=_ nrel_decomposition_of_action:: _...
+(*
+	// ШАГ 1: ИНИЦИАЛИЗАЦИЯ РЕЗУЛЬТИРУЮЩЕЙ СТРУКТУРЫ
+	// Создать пустую структуру для добавления специалистов.
+	_-> rrel_1:: .._generate_result_set_of_scientists_with_big_data
+	(*
+		<-_ genElStr3;;
+
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: rrel_const:: rrel_node:: rrel_structure:: .._result_scientists;;
+		_-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_const_perm_pos_arc:: .._arc_from_result_scientists_to_class;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: concept_data_scientist;;
+
+		// Перейти к проверке входного аргумента.
+		_=> nrel_goto:: .._check_company;;
+	*);;
+
+	// ШАГ 2: ПРОВЕРКА ВХОДНОГО АРГУМЕНТА
+	// Проверить, что входной аргумент действительно является экземпляром класса компаний.
+	_-> .._check_company
+	(*
+		<-_ searchElStr3;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_company;;
+		_-> rrel_2:: rrel_assign:: rrel_const_perm_pos_arc:: rrel_scp_var:: .._arc_from_class_to_company;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: .._company;;
+
+		// Если входной аргумент является экземпляром класса компаний, 
+		// то перейти к печати в терминал, что он является компанией.
+		_=> nrel_then:: .._print_that_specified_argument_is_company;;
+		// Если входной аргумент не является экземпляром класса компаний, 
+		// то перейти к печати в терминал, что он не является компанией.
+		_=> nrel_else:: .._print_that_specified_argument_is_not_company;;
+	*);;
+
+	// Напечатать в терминал, что входной аргумент является компанией.
+	_-> .._print_that_specified_argument_is_company
+	(*
+		<-_ printNl;;		
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Specified argument is company];;
+
+		// Перейти к поиску всех специалистов в компании.
+		_=> nrel_goto:: .._search_company_scientists;;
+	*);;
+
+	// ШАГ 3: ПОИСК ВСЕХ СПЕЦИАЛИСТОВ В КОМПАНИИ
+	// Найти всех специалистов, работающих в компании, сформировать множество из них и записать в .._found_scientists.
+	_-> .._search_company_scientists
+	(*
+		<-_ searchSetStr5;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: .._company;;
+		_-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_const_perm_pos_arc:: .._arc_from_company_to_scientist;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_const:: rrel_node:: .._scientist;;
+		_-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_const_perm_pos_arc:: .._arc_to_arc_from_company_to_scientist;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_employee;;
+	
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: .._found_scientists;;
+
+		// Если специалисты найдены, то перейти к выбору специалиста.
+		_=> nrel_then:: .._get_next_scientist;;
+		// Если специалисты не найдены, то перейти к печати в терминал, что все специалисты были пройдены.
+		_=> nrel_else:: .._print_that_no_scientists_in_company;;
+	*);;
+
+	// ШАГ 4: ВЫБРАТЬ СПЕЦИАЛИСТА ИЗ МНОЖЕСТВА НАЙДЕННЫХ СПЕЦИАЛИСТОВ
+	// Найти любого специалиста во множестве найденных специалистов, являющегося значением переменной .._found_scientists.
+	_-> .._get_next_scientist
+	(*
+		<-_ searchElStr3;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: .._found_scientists;;
+		_-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_const_perm_pos_arc:: .._arc_from_scientist_set_to_scientist;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: .._scientist;;
+
+		// Если специалисты еще остались, то перейти к удалению выбранного специалиста из множества.
+		_=> nrel_then:: .._pop_scientist_from_set;;
+		// Если все специалисты были пройдены, то перейти к печати в терминал, что все специалисты были пройдены.
+		_=> nrel_else:: .._print_that_all_scientists_were_iterated;;
+	*);;
+
+	// ШАГ 5: УДАЛИТЬ ВЫБРАННОГО СПЕЦИАЛИСТА ИЗ МНОЖЕСТВА НАЙДЕННЫХ СПЕЦИАЛИСТОВ
+	// Удалить sc-дугу между множеством в .._found_scientists и выбранным специалистом.
+	_-> .._pop_scientist_from_set
+	(*
+		<-_ eraseEl;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: rrel_erase:: .._arc_from_scientist_set_to_scientist;;
+
+		// Перейти к печати в терминал, что специалист успешно извлечен из множества.
+		_=> nrel_goto:: .._print_that_company_scientist_was_found;;
+	*);;
+
+	// Напечатать в терминал, что специалист успешно извлечен из множества.
+	_-> .._print_that_company_scientist_was_found
+	(*
+		<-_ printNl;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Scientist was found in specified company];;
+
+		// Перейти к поиску средних данных специалиста.
+		_=> nrel_goto:: .._search_scientist_average_data;;
+	*);;
+
+	// ШАГ 6: ПОЛУЧИТЬ СРЕДНИЕ ДАННЫЕ СПЕЦИАЛИСТА
+	// Найти связку отношения nrel_average_data для текущего специалиста.
+	_-> .._search_scientist_average_data
+	(*
+		<-_ searchElStr5;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: .._scientist;;
+		_-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_const:: rrel_common_arc:: .._arc_from_scientist_to_average_data;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_const:: rrel_node:: rrel_node_link:: .._average_data;;
+		_-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_const_perm_pos_arc:: .._arc_to_arc_from_scientist_to_average_data;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_average_data;;
+
+		// Если средние данные найдены, то перейти к печати в терминал, что средние данные найдены.
+		_=> nrel_then:: .._print_that_average_data_is_found;;
+		// Если средние данные не найдены, то перейти к печати в терминал, что средние данные не найдены.
+		_=> nrel_else:: .._print_that_average_data_is_not_found;;
+	*);;
+
+	// Напечатать в терминал, что средние данные найдены.
+	_-> .._print_that_average_data_is_found
+	(*
+		<-_ printNl;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Average data is found for specified scientist];;
+
+		// Перейти к проверке порога средних данных.
+		_=> nrel_goto:: .._check_scientist_average_data;;
+	*);;
+
+	// ШАГ 7: ПРОВЕРКА ПОРОГА СРЕДНИХ ДАННЫХ
+	// Проверить, что средние данные специалиста >= 1000.0 (порог для "больших данных").
+	_-> .._check_scientist_average_data
+	(*
+		<-_ ifGr;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: .._average_data;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: [1000.0];;
+
+		// Перейти к проверке принадлежности специалиста к классу concept_data_scientist.
+		_=> nrel_then:: .._check_scientist_class;;
+		// Перейти к выбору следующего специалиста.
+		_=> nrel_else:: .._get_next_scientist;;
+	*);;
+
+	// ШАГ 8: ПРОВЕРКА ПРИНАДЛЕЖНОСТИ К КЛАССУ СПЕЦИАЛИСТОВ ПО ДАННЫМ
+	// Проверить, что специалист принадлежит классу concept_data_scientist.
+	// Если специалист принадлежит классу concept_data_scientist, то добавить sc-дугу базового вида между ними
+	// в результирующее множество.
+	_-> .._check_scientist_class
+	(*
+		<-_ searchElStr3;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_data_scientist;;
+		_-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_const_perm_pos_arc:: .._arc_from_class_to_scientist;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: .._scientist;;
+
+		_=> nrel_then:: .._add_scientist_to_result_scientists_set;;
+		_=> nrel_else:: .._get_next_scientist;;
+	*);;
+
+	// ШАГ 9: ДОБАВИТЬ СПЕЦИАЛИСТА В РЕЗУЛЬТИРУЮЩЕЕ МНОЖЕСТВО
+	// Создать sc-дугу базового вида от структуры в .._result_scientists к текущему специалисту.
+	_-> .._add_scientist_to_result_scientists_set
+	(*
+		<-_ genElStr3;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: .._result_scientists;;
+		_-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_const_perm_pos_arc:: .._arc_from_result_scientists_set_to_scientist;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: .._scientist;;
+
+		// Перейти к печати в терминал, что специалист успешно добавлен в результат.
+		_=> nrel_goto:: .._print_that_scientist_was_added_to_result_scientists_set;;
+	*);;
+
+	// Напечатать в терминал, что специалист успешно добавлен в результат.
+	_-> .._print_that_scientist_was_added_to_result_scientists_set
+	(*
+		<-_ printNl;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Scientist was added to result scientists set];;
+
+		// Перейти к выбору следующего специалиста.
+		_=> nrel_goto:: .._get_next_scientist;;
+	*);;
+
+	// Напечатать в терминал, что средние данные не найдены.
+	_-> .._print_that_average_data_is_not_found
+	(*
+		<-_ printNl;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Average data is not found for specified scientist];;
+
+		// Перейти к выбору следующего специалиста.
+		_=> nrel_goto:: .._get_next_scientist;;
+	*);;
+
+	// Напечатать в терминал, что все специалисты в компании были обработаны.
+	_-> .._print_that_all_scientists_were_iterated
+	(*
+		<-_ printNl;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [All scientists were iterated in specified company];;
+
+		// Перейти к удалению временного множества специалистов.
+		_=> nrel_goto:: .._erase_found_scientists_set;;
+	*);;
+
+	// Удалить временное множество специалистов.
+	_-> .._erase_found_scientists_set
+	(*
+		<-_ eraseEl;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: rrel_erase:: .._found_scientists;;
+
+		// Перейти к завершению программы.
+		_=> nrel_goto:: .._return_result;;
+	*);;
+
+	// Напечатать в терминал, что в компании нет специалистов.
+	_-> .._print_that_no_scientists_in_company
+	(*
+		<-_ printNl;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [No scientists in specified company];;
+
+		// Перейти к завершению программы.
+		_=> nrel_goto:: .._return_result;;
+	*);;
+
+	// Напечатать в терминал, что указанный аргумент не является компанией.
+	_-> .._print_that_specified_argument_is_not_company
+	(*
+		<-_ printNl;;
+
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Specified argument is not company];;
+
+		// Перейти к завершению программы.
+		_=> nrel_goto:: .._return_result;;
+	*);;
+
+	// Завершить программу.
+	_-> .._return_result
+	(*
+		<-_ return;;
+	*);;
+*);;
+*];;

@@ -1,0 +1,8 @@
+tensorflow
+<- concept_ds_tool;
+=> nrel_main_idtf: 
+    [TensorFlow] 
+    (* <- lang_ru;; *);
+-> rrel_applies_to: 
+    nlp;
+    computer_vision;;

@@ -1,0 +1,9 @@
+scikit_learn
+<- concept_ds_tool;
+=> nrel_main_idtf: 
+    [scikit-learn] 
+    (* <- lang_ru;; *);
+-> rrel_applies_to: 
+    classification;
+    regression;
+    clustering;;

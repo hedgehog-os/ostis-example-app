@@ -1,0 +1,14 @@
+concept_cleaner
+<- sc_node_class;
+<- concept_class;
+=> nrel_main_idtf:
+    [уборщик]
+    (*
+        <- lang_ru;;
+    *);
+    [cleaner]
+    (*
+        <- lang_en;;
+    *);
+<= nrel_inclusion:
+    concept_role;;

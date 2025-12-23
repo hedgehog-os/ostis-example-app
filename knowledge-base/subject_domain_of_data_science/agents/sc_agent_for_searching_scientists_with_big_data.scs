@@ -1,0 +1,55 @@
+sc_agent_for_searching_scientists_with_big_data
+=> nrel_main_idtf:
+	[sc-агент поиска специалистов заданной компании, которые имеют большое количество данных]
+    (*
+        <- lang_ru;;
+    *);
+	[sc-agent for searching scientists of specified company with big data]
+    (* 
+        <- lang_en;;
+    *);
+<- abstract_sc_agent;
+// Агент активируется при возникновении события создания выходящей дуги из класса action_initiated.
+=> nrel_primary_initiation_condition: 
+	(sc_event_after_generate_outgoing_arc => action_initiated);
+=> nrel_initiation_condition_and_result: 
+	(..sc_agent_for_searching_scientists_with_big_data_condition 
+=> ..sc_agent_for_searching_scientists_with_big_data_result);
+=> nrel_sc_agent_action_class:
+	action_search_scientists_with_big_data;
+<= nrel_sc_agent_key_sc_elements: 
+{
+	action_initiated;
+	action_search_scientists_with_big_data
+};
+=> nrel_inclusion: 
+	.platform_independent_implementation_of_sc_agent_for_searching_scientists_with_big_data
+	(*
+		<- platform_independent_abstract_sc_agent;;
+		<= nrel_sc_agent_program: 
+		{
+			agent_program_for_searching_scientists_with_big_data;
+			program_for_searching_scientists_with_big_data
+		};;
+
+		-> scp_agent_for_searching_scientists_with_big_data
+		(*
+			<- active_sc_agent;;
+		*);;  
+	*);;
+
+// Агент начинает выполнять действие, если оно является 
+// экземпляром класса action_search_scientists_with_big_data 
+// и имеет в качестве первого аргумента компанию.
+..sc_agent_for_searching_scientists_with_big_data_condition
+= [*
+	action_search_scientists_with_big_data _-> .._action;;
+	action_initiated _-> .._action;;
+	.._action _-> rrel_1:: .._company;;
+*];;
+
+// Агент завершает выполнять действие успешно, если он нашел специалистов с большим количеством данных.
+..sc_agent_for_searching_scientists_with_big_data_result
+= [*
+	concept_data_scientist _-> .._scientist;;
+*];;

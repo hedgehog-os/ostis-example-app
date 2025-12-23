@@ -1,0 +1,42 @@
+subject_domain_of_staff_schedule
+<- concept_subject_domain;
+=> nrel_main_idtf:
+    [Предметная область графика работы сотрудников ресторана]
+    (*
+        <- lang_ru;;
+    *);
+    [Restaurant staff scheduling subject domain]
+    (*
+        <- lang_en;;
+    *);
+<= nrel_private_subject_domain:
+    subject_domain_of_optimization;
+-> rrel_maximum_studied_object_class:
+    concept_shift;
+-> rrel_not_maximum_studied_object_class:
+    concept_employee;
+    concept_week_schedule;
+    concept_role;
+    concept_restaurant;
+    concept_employee_slot;
+    concept_staffing_issue;
+-> rrel_explored_relation:
+    nrel_assigned_employee;
+    nrel_can_work;
+    nrel_available_shift_type;
+    nrel_has_employee;
+    nrel_all_shifts_staffed;
+    nrel_employee_slot;
+    nrel_slot_can_work;
+    nrel_missing_role;
+    nrel_missing_count;
+    nrel_missing_shift;
+=> nrel_note:
+    [Данная предметная область описывает график работы сотрудников ресторана по сменам.]
+    (*
+        <- lang_ru;;
+    *);
+    [This subject domain describes restaurant staff schedules by shifts.]
+    (*
+        <- lang_en;;
+    *);;

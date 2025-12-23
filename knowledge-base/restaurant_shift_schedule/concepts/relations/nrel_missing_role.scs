@@ -1,0 +1,18 @@
+nrel_missing_role
+<- sc_node_non_role_relation;
+<- concept_non_role_relation;
+<- concept_binary_relation;
+<- concept_oriented_relation;
+=> nrel_main_idtf:
+    [отсутствующая роль*]
+    (*
+        <- lang_ru;;
+    *);
+    [missing role*]
+    (*
+        <- lang_en;;
+    *);
+=> nrel_first_domain:
+    concept_staffing_issue;
+=> nrel_first_domain:
+    concept_role;;

@@ -1,0 +1,11 @@
+shift_type_morning
+=> nrel_main_idtf:
+    [утренняя смена]
+    (*
+        <- lang_ru;;
+    *);
+    [morning shift]
+    (*
+        <- lang_en;;
+    *);
+<- concept_shift_type;;

@@ -1,0 +1,18 @@
+nrel_max_shifts_per_week
+<- sc_node_non_role_relation;
+<- concept_non_role_relation;
+<- concept_binary_relation;
+<- concept_oriented_relation;
+=> nrel_main_idtf:
+    [максимум смен в неделю*]
+    (*
+        <- lang_ru;;
+    *);
+    [max shifts per week*]
+    (*
+        <- lang_en;;
+    *);
+=> nrel_first_domain:
+    concept_employee;
+=> nrel_first_domain:
+    sc_node_link;;

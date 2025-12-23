@@ -1,0 +1,5 @@
+nrel_fio
+<- sc_node_non_role_relation;
+=> nrel_main_idtf:
+    [ФИО*]
+    (* <- lang_ru;; *);;

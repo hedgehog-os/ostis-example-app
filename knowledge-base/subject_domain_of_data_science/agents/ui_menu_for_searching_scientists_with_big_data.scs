@@ -1,0 +1,29 @@
+ui_menu_for_searching_scientists_with_big_data
+<- ui_user_command_class_atom;
+<- ui_user_command_class_view_kb;
+=> nrel_main_idtf:
+	[Найти специалистов с самым большим количеством данных]
+	(*
+		<- lang_ru;;
+	*);
+	[Search scientists of specified company with big data]
+	(*
+		<- lang_en;;
+	*);
+=> ui_nrel_command_template:
+	[*
+		action_search_scientists_with_big_data _-> .._action
+		(*
+			_-> rrel_1:: ui_arg_1;;
+		*);;
+		.._action <-_ action;;
+	*];
+=> ui_nrel_command_lang_template:
+	[Найти специалистов $ui_arg_1, которые имеют большое количество данных]
+	(*
+		<- lang_ru;;
+	*);
+	[Search scientists of $ui_arg_1 with big data]
+	(*
+		<- lang_en;;
+	*);;

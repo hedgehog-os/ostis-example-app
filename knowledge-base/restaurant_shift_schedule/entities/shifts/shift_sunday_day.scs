@@ -1,0 +1,15 @@
+shift_sunday_day
+=> nrel_main_idtf:
+    [воскресенье дневная смена]
+    (*
+        <- lang_ru;;
+    *);
+    [Sun day shift]
+    (*
+        <- lang_en;;
+    *);
+<- concept_shift;
+=> nrel_shift_day:
+    day_sunday;
+=> nrel_shift_type:
+    shift_type_day;;

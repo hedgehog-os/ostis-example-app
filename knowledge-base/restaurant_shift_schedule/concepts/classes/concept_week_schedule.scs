@@ -1,0 +1,12 @@
+concept_week_schedule
+<- sc_node_class;
+<- concept_class;
+=> nrel_main_idtf:
+    [недельный график]
+    (*
+        <- lang_ru;;
+    *);
+    [weekly schedule]
+    (*
+        <- lang_en;;
+    *);;

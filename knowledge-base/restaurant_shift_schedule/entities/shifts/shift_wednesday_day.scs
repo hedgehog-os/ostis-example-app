@@ -1,0 +1,15 @@
+shift_wednesday_day
+=> nrel_main_idtf:
+    [среда дневная смена]
+    (*
+        <- lang_ru;;
+    *);
+    [Wed day shift]
+    (*
+        <- lang_en;;
+    *);
+<- concept_shift;
+=> nrel_shift_day:
+    day_wednesday;
+=> nrel_shift_type:
+    shift_type_day;;

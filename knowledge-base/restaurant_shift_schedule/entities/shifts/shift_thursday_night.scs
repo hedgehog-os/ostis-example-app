@@ -1,0 +1,15 @@
+shift_thursday_night
+=> nrel_main_idtf:
+    [четверг ночная смена]
+    (*
+        <- lang_ru;;
+    *);
+    [Thu night shift]
+    (*
+        <- lang_en;;
+    *);
+<- concept_shift;
+=> nrel_shift_day:
+    day_thursday;
+=> nrel_shift_type:
+    shift_type_night;;

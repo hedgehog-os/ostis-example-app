@@ -1,0 +1,24 @@
+restaurant_gourman
+=> nrel_main_idtf:
+    [Ресторан «Гурман»]
+    (*
+        <- lang_ru;;
+    *);
+    [Gourman restaurant]
+    (*
+        <- lang_en;;
+    *);
+<- concept_restaurant;
+=> nrel_has_employee:
+    employee_antonov;
+    employee_belov;
+    employee_vasiliev;
+    employee_grishin;
+    employee_dmitriev;
+    employee_egorov;
+    employee_zhukov;
+    employee_zaitsev;
+    employee_ivanov;
+    employee_kozlov;
+    employee_lvov;
+    employee_mikhailov;;

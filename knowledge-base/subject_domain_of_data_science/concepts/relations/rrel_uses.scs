@@ -1,0 +1,5 @@
+rrel_uses
+<- sc_node_role_relation;
+=> nrel_main_idtf:
+    [использует']
+    (* <- lang_ru;; *);;

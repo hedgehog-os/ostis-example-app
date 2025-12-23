@@ -1,0 +1,29 @@
+ui_menu_build_staff_schedule
+<- ui_user_command_class_atom;
+<- ui_user_command_class_view_kb;
+=> nrel_main_idtf:
+    [Сформировать график работы сотрудников ресторана]
+    (*
+        <- lang_ru;;
+    *);
+    [Generate restaurant staff schedule]
+    (*
+        <- lang_en;;
+    *);
+=> ui_nrel_command_template:
+    [*
+        action_build_staff_schedule _-> .._action
+        (*
+            _-> rrel_1:: ui_arg_1;;
+        *);;
+        .._action <-_ action;;
+    *];
+=> ui_nrel_command_lang_template:
+    [Сформировать график работы сотрудников ресторана $ui_arg_1]
+    (*
+        <- lang_ru;;
+    *);
+    [Generate restaurant staff schedule for $ui_arg_1]
+    (*
+        <- lang_en;;
+    *);;

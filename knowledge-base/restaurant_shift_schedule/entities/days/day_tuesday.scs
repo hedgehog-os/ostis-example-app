@@ -1,0 +1,11 @@
+day_tuesday
+=> nrel_main_idtf:
+    [вторник]
+    (*
+        <- lang_ru;;
+    *);
+    [tuesday]
+    (*
+        <- lang_en;;
+    *);
+<- concept_day;;

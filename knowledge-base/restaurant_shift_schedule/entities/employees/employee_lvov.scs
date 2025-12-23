@@ -1,0 +1,17 @@
+employee_lvov
+=> nrel_main_idtf:
+    [Львов]
+    (*
+        <- lang_ru;;
+    *);
+    [Lvov]
+    (*
+        <- lang_en;;
+    *);
+<- concept_employee;
+=> nrel_has_role:
+    concept_admin;
+=> nrel_available_shift_type:
+    shift_type_day;
+=> nrel_max_shifts_per_week:
+    [5];;

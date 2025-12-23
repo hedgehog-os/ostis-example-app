@@ -1,0 +1,19 @@
+employee_kozlov
+=> nrel_main_idtf:
+    [Козлов]
+    (*
+        <- lang_ru;;
+    *);
+    [Kozlov]
+    (*
+        <- lang_en;;
+    *);
+<- concept_employee;
+=> nrel_has_role:
+    concept_cleaner;
+=> nrel_available_shift_type:
+    shift_type_morning;
+    shift_type_day;
+    shift_type_night;
+=> nrel_max_shifts_per_week:
+    [5];;

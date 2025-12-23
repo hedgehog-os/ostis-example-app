@@ -1,0 +1,5 @@
+concept_ds_tool
+<- sc_node_class;
+=> nrel_main_idtf:
+    [инструмент data science]
+    (* <- lang_ru;; *);;

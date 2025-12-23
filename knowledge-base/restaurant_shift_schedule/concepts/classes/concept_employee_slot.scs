@@ -1,0 +1,12 @@
+concept_employee_slot
+<- sc_node_class;
+<- concept_class;
+=> nrel_main_idtf:
+    [слот смены сотрудника]
+    (*
+        <- lang_ru;;
+    *);
+    [employee shift slot]
+    (*
+        <- lang_en;;
+    *);;

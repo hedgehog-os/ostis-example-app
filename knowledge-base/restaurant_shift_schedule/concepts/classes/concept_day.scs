@@ -1,0 +1,12 @@
+concept_day
+<- sc_node_class;
+<- concept_class;
+=> nrel_main_idtf:
+    [день недели]
+    (*
+        <- lang_ru;;
+    *);
+    [day of week]
+    (*
+        <- lang_en;;
+    *);;

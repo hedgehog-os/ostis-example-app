@@ -1,0 +1,18 @@
+nrel_all_shifts_staffed
+<- sc_node_non_role_relation;
+<- concept_non_role_relation;
+<- concept_binary_relation;
+<- concept_oriented_relation;
+=> nrel_main_idtf:
+    [все смены укомплектованы*]
+    (*
+        <- lang_ru;;
+    *);
+    [all shifts staffed*]
+    (*
+        <- lang_en;;
+    *);
+=> nrel_first_domain:
+    concept_week_schedule;
+=> nrel_first_domain:
+    sc_node_link;;

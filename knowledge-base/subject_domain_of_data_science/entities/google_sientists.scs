@@ -1,0 +1,49 @@
+andrew_ng
+<- concept_data_scientist;
+=> nrel_main_idtf: 
+    [Эндрю Ын] 
+    (* <- lang_ru;; *);
+=> nrel_fio: 
+    [Andrew Ng] 
+    (* <- lang_en;; *);
+-> rrel_uses: 
+    tensorflow;
+    python;
+-> nrel_specialization: 
+    classification;
+    nlp;
+=> nrel_average_data:
+    [3000.0];;
+
+fe_fe_li
+<- concept_data_scientist;
+=> nrel_main_idtf: 
+    [Фэй-Фэй Ли] 
+    (* <- lang_ru;; *);
+=> nrel_fio: 
+    [Fei-Fei Li] 
+    (* <- lang_en;; *);
+-> rrel_uses: 
+    pytorch;
+-> nrel_specialization:
+    classification;
+    clustering;
+=> nrel_average_data:
+    [2000.0];;
+
+yann_lecun
+<- concept_data_scientist;
+=> nrel_main_idtf: 
+    [Ян Лекун] 
+    (* <- lang_ru;; *);
+=> nrel_fio: 
+    [Yann LeCun] 
+    (* <- lang_en;; *);
+-> rrel_uses: 
+    pytorch;
+    sql;
+-> nrel_specialization: 
+    computer_vision;
+    regression;
+=> nrel_average_data:
+    [3000.0];;

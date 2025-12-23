@@ -1,0 +1,7 @@
+concept_supervised_learning
+<- sc_node_class;
+=> nrel_main_idtf:
+    [обучение с учителем]
+    (* <- lang_ru;; *);
+<= nrel_inclusion:
+    concept_machine_learning;;

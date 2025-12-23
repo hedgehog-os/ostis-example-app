@@ -1,0 +1,7 @@
+clustering
+<- concept_ds_task;
+=> nrel_main_idtf: 
+    [кластеризация] 
+    (* <- lang_ru;; *);
+<= nrel_inclusion: 
+    concept_unsupervised_learning;;

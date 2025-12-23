@@ -1,0 +1,7 @@
+nlp
+<- concept_ds_task;
+=> nrel_main_idtf: 
+    [обработка естественного языка] 
+    (* <- lang_ru;; *);
+<= nrel_inclusion: 
+    concept_deep_learning;;

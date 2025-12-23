@@ -1,0 +1,12 @@
+action_build_staff_schedule
+<- sc_node_class;
+<- concept_class;
+=> nrel_main_idtf:
+    [действие построения графика работы сотрудников]
+    (*
+        <- lang_ru;;
+    *);
+    [action to build staff schedule]
+    (*
+        <- lang_en;;
+    *);;

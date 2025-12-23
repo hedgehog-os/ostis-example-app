@@ -1,0 +1,14 @@
+concept_waiter
+<- sc_node_class;
+<- concept_class;
+=> nrel_main_idtf:
+    [официант]
+    (*
+        <- lang_ru;;
+    *);
+    [waiter]
+    (*
+        <- lang_en;;
+    *);
+<= nrel_inclusion:
+    concept_role;;

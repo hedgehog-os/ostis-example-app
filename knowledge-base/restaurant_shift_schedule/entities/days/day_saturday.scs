@@ -1,0 +1,11 @@
+day_saturday
+=> nrel_main_idtf:
+    [суббота]
+    (*
+        <- lang_ru;;
+    *);
+    [saturday]
+    (*
+        <- lang_en;;
+    *);
+<- concept_day;;

@@ -1,0 +1,5 @@
+concept_data_scientist
+<- sc_node_class;
+=> nrel_main_idtf:
+    [дата-сайентист]
+    (* <- lang_ru;; *);;
